@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">FinalProject</string>
+    <string name="shop_name">TokoJustin</string>
+    <string name="stock_check">Cek Stock</string>
+</resources>
