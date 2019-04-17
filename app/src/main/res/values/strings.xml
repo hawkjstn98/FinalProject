@@ -2,4 +2,6 @@
     <string name="app_name">FinalProject</string>
     <string name="shop_name">TokoJustin</string>
     <string name="stock_check">Cek Stock</string>
+    <string name="cek_stock">Cek Stock</string>
+    <string name="search_text">Search</string>
 </resources>

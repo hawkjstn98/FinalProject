@@ -72,8 +72,8 @@
                         android:padding="8dp" />
 
                 <EditText
-                        android:layout_width="248dp"
-                        android:layout_height="wrap_content"
+                        android:layout_width="277dp"
+                        android:layout_height="match_parent"
                         android:layout_alignBottom="@+id/imgView_harga"
                         android:layout_alignParentTop="true"
                         android:layout_marginLeft="0dp"
@@ -81,7 +81,8 @@
                         android:background="@color/editTextBackground"
                         android:hint="harga"
                         android:paddingLeft="20dp"
-                        android:textSize="15dp" />
+                        android:textSize="15dp" android:layout_alignParentEnd="true" android:layout_marginEnd="24dp"
+                        android:layout_marginBottom="0dp"/>
             </RelativeLayout>
 
             <RelativeLayout
@@ -101,8 +102,8 @@
                         android:padding="8dp" />
 
                 <EditText
-                        android:layout_width="248dp"
-                        android:layout_height="wrap_content"
+                        android:layout_width="277dp"
+                        android:layout_height="match_parent"
                         android:layout_alignBottom="@+id/imgView_ukuran"
                         android:layout_alignParentTop="true"
                         android:layout_marginLeft="0dp"
@@ -110,7 +111,8 @@
                         android:background="@color/editTextBackground"
                         android:hint="ukuran"
                         android:paddingLeft="20dp"
-                        android:textSize="15dp" />
+                        android:textSize="15dp" android:layout_alignParentEnd="true" android:layout_marginEnd="24dp"
+                        android:layout_marginBottom="0dp"/>
             </RelativeLayout>
             <RelativeLayout
                     android:id="@+id/rljumlah"
@@ -129,8 +131,8 @@
                         android:padding="8dp" />
 
                 <EditText
-                        android:layout_width="248dp"
-                        android:layout_height="wrap_content"
+                        android:layout_width="277dp"
+                        android:layout_height="match_parent"
                         android:layout_alignBottom="@+id/imgView_jumlah"
                         android:layout_alignParentTop="true"
                         android:layout_marginLeft="0dp"
@@ -138,7 +140,8 @@
                         android:background="@color/editTextBackground"
                         android:hint="jumlah"
                         android:paddingLeft="20dp"
-                        android:textSize="15dp" />
+                        android:textSize="15dp" android:layout_alignParentEnd="true" android:layout_marginEnd="24dp"
+                        android:layout_marginBottom="0dp"/>
             </RelativeLayout>
 
             <RelativeLayout
@@ -158,8 +161,8 @@
                         android:padding="8dp" />
 
                 <EditText
-                        android:layout_width="248dp"
-                        android:layout_height="wrap_content"
+                        android:layout_width="277dp"
+                        android:layout_height="match_parent"
                         android:layout_alignBottom="@+id/imgView_kode"
                         android:layout_alignParentTop="true"
                         android:layout_marginLeft="0dp"
@@ -167,7 +170,8 @@
                         android:background="@color/editTextBackground"
                         android:hint="jumlah"
                         android:paddingLeft="20dp"
-                        android:textSize="15dp" />
+                        android:textSize="15dp" android:layout_alignParentEnd="true" android:layout_marginEnd="24dp"
+                        android:layout_marginBottom="0dp"/>
             </RelativeLayout>
 
             <Button
@@ -175,10 +179,12 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/rlkode"
                     android:layout_marginLeft="30dp"
-                    android:layout_marginTop="15dp"
+                    android:layout_marginTop="16dp"
                     android:background="@color/colorPrimary"
                     android:text="Input"
-                    android:textColor="@color/white">
+                    android:textColor="@color/white" android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="42dp" android:layout_alignParentStart="true"
+                    android:layout_marginStart="42dp">
 
             </Button>
         </RelativeLayout>
