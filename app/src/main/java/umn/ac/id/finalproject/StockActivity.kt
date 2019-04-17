@@ -11,8 +11,7 @@ import android.widget.Toast
 import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.Response
-import com.android.volley.toolbox.JsonObjectRequest
-import com.android.volley.toolbox.Volley
+import com.android.volley.toolbox.*
 import data.Product
 import org.json.JSONArray
 import org.json.JSONObject
@@ -51,7 +50,7 @@ class StockActivity : AppCompatActivity() {
         txtSearch = findViewById(R.id.main2_search_edittext)
 
         btnSearch.setOnClickListener {
-            var newList: ArrayList<Product> = ArrayList()
+            val newList: ArrayList<Product> = ArrayList()
 
             if(!txtSearch.text.equals("")){
                 for(data: Product in dataList){
@@ -77,16 +76,24 @@ class StockActivity : AppCompatActivity() {
     }
 
     fun addData(){
-        var jsonObjectRequest = JsonObjectRequest(Request.Method.GET, url, null, Response.Listener { response ->
-            var jsonArray: JSONArray = response.getJSONArray("data")
+        val cache = DiskBasedCache(cacheDir, 1024 * 1024)
+
+        val network = BasicNetwork(HurlStack())
+
+        val requestQueue : RequestQueue = RequestQueue(cache, network).apply { start() }
+
+        val jsonObjectRequest = JsonObjectRequest(Request.Method.GET, url, null, Response.Listener { response ->
+            val jsonArray: JSONArray = response.getJSONArray("data")
             for(i in 0..(jsonArray.length() - 1)){
-                var data: JSONObject = jsonArray.getJSONObject(i)
-                var product = Product(data.getInt("tokoid"), data.getInt("jumlah"), data.getString("warna"), data.getInt("ukuran"), data.getString("produkid"))
+                val data: JSONObject = jsonArray.getJSONObject(i)
+                val product = Product(data.getInt("tokoid"), data.getInt("jumlah"), data.getString("warna"), data.getInt("ukuran"), data.getString("produkid"))
                 dataList.add(product)
             }
         },
             Response.ErrorListener { error ->
                 Log.e("REPONSEERROR", error.message)
         })
+
+        requestQueue.add(jsonObjectRequest)
     }
 }
