@@ -9,9 +9,7 @@ import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import com.android.volley.Request
 import com.android.volley.RequestQueue
-import com.android.volley.Response
 import com.android.volley.toolbox.*
 import data.Product
 import org.json.JSONArray
@@ -21,12 +19,13 @@ import java.io.BufferedReader
 import java.io.IOException
 import java.io.InputStream
 import java.io.InputStreamReader
-import java.lang.StringBuilder
 import java.net.HttpURLConnection
 import java.net.MalformedURLException
 import java.net.URL
+import data.urlData
+import data.param
 
-class StockActivity : AppCompatActivity() {
+class StockActivity : AppCompatActivity(), urlData, param {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var pAdapter: ProductAdapter
@@ -36,7 +35,7 @@ class StockActivity : AppCompatActivity() {
     private lateinit var btnSearch: Button
     private lateinit var txtSearch: EditText
 
-    private var param: String = "?userName=MarioWibu&password=18FD9299941BC42015D5B54DA25B8BCEAA9ED3559C57FFB95442C38842964504"
+    private var param: String = callParamToko()
     private lateinit var requestQueue: RequestQueue
 
     private inner class FetchData : AsyncTask<String, Void, String>() {
@@ -46,7 +45,7 @@ class StockActivity : AppCompatActivity() {
 
             var jsonString: String = ""
             try {
-                val urlString: String = "http://192.168.0.24/getData/getstockToko.php" + params[0]
+                val urlString: String = callUrl() + params[0]
                 val urlConnect:URL = URL(urlString)
 
                 urlConnection = urlConnect.openConnection() as HttpURLConnection
