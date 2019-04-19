@@ -30,12 +30,12 @@ class ProductAdapter : RecyclerView.Adapter<ProductAdapter.ProductViewHolder> {
     }
 
     override fun onBindViewHolder(p0: ProductViewHolder, p1: Int) {
-        p0.idItem.setText("Product ID : " + dataList.get(p1).produkId)
-        p0.warnaItem.setText("Warna : " + dataList.get(p1).warna)
-        p0.ukuranItem.setText("Ukuran : " + dataList.get(p1).ukuran)
-        p0.jumlahItem.setText("Jumlah : " + dataList.get(p1).ukuran)
+        p0.idItem.text = "Product ID : " + dataList.get(p1).produkId
+        p0.warnaItem.text = "Warna : " + dataList.get(p1).warna
+        p0.ukuranItem.text = "Ukuran : " + dataList.get(p1).ukuran
+        p0.jumlahItem.text = "Jumlah : " + dataList.get(p1).jumlah
         p0.parentLayout.setOnClickListener {
-            Toast.makeText(context, p0.idItem.text, Toast.LENGTH_SHORT)
+            Toast.makeText(context, p0.idItem.text, Toast.LENGTH_SHORT).show()
         }
     }
 

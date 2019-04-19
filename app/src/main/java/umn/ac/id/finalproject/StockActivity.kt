@@ -1,5 +1,6 @@
 package umn.ac.id.finalproject
 
+import android.os.AsyncTask
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
@@ -14,7 +15,16 @@ import com.android.volley.Response
 import com.android.volley.toolbox.*
 import data.Product
 import org.json.JSONArray
+import org.json.JSONException
 import org.json.JSONObject
+import java.io.BufferedReader
+import java.io.IOException
+import java.io.InputStream
+import java.io.InputStreamReader
+import java.lang.StringBuilder
+import java.net.HttpURLConnection
+import java.net.MalformedURLException
+import java.net.URL
 
 class StockActivity : AppCompatActivity() {
 
@@ -26,8 +36,86 @@ class StockActivity : AppCompatActivity() {
     private lateinit var btnSearch: Button
     private lateinit var txtSearch: EditText
 
-    private var url: String = "http://localhost/getData/getstockToko.php?userName=MarioWibu&password=18FD9299941BC42015D5B54DA25B8BCEAA9ED3559C57FFB95442C38842964504"
+    private var param: String = "?userName=MarioWibu&password=18FD9299941BC42015D5B54DA25B8BCEAA9ED3559C57FFB95442C38842964504"
     private lateinit var requestQueue: RequestQueue
+
+    private inner class FetchData : AsyncTask<String, Void, String>() {
+        override fun doInBackground(vararg params: String?): String? {
+            var urlConnection: HttpURLConnection? = null
+            var bufferedReader: BufferedReader? = null
+
+            var jsonString: String = ""
+            try {
+                val urlString: String = "http://192.168.0.24/getData/getstockToko.php" + params[0]
+                val urlConnect:URL = URL(urlString)
+
+                urlConnection = urlConnect.openConnection() as HttpURLConnection
+
+                urlConnection.requestMethod = "GET"
+
+                urlConnection.connect()
+
+                var lengthOfFile: Int = urlConnection.contentLength
+
+                val inputStream: InputStream = urlConnection.inputStream
+
+                if(inputStream.available() > 0){
+                    return null
+                }
+
+                bufferedReader = BufferedReader(InputStreamReader(inputStream))
+
+                val line: String = bufferedReader.readLine()
+
+                jsonString = line
+
+                Log.d("FETCHDATA", jsonString)
+
+                val jsonObject: JSONObject = JSONObject(jsonString)
+
+                val statusCode: String = jsonObject.getString("success")
+
+                if(statusCode.equals("success")){
+                    val jsonArray: JSONArray = jsonObject.getJSONArray("data")
+
+                    for(i: Int in 0 until (jsonArray.length())){
+                        val theData: JSONObject = jsonArray.getJSONObject(i)
+
+                        val product: Product = Product(
+                            theData.getInt("tokoid"),
+                            theData.getInt("jumlah"),
+                            theData.getString("warna"),
+                            theData.getInt("ukuran"),
+                            theData.getString("produkid")
+                        )
+
+                        dataList.add(product)
+                    }
+                }
+            }
+            catch (e: MalformedURLException){
+                Log.e("MALFORMED", "MalformedURLException" + e.message)
+            }
+            catch (e: IOException){
+                Log.e("IO", "IOException" + e.message)
+            }
+            catch (e: JSONException){
+                e.printStackTrace()
+            }
+            finally {
+                urlConnection?.disconnect()
+
+                if (bufferedReader != null) {
+                    try {
+                        bufferedReader.close()
+                    } catch (e: IOException) {
+                        Log.e("BUFFEREDIOEXCEPTION", "IOException" + e.message)
+                    }
+                }
+            }
+            return jsonString
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,7 +124,7 @@ class StockActivity : AppCompatActivity() {
         requestQueue = Volley.newRequestQueue(this)
 
         dataList = ArrayList()
-        addData()
+        FetchData().execute(param)
         defaultDataList.addAll(dataList)
 
         pAdapter = ProductAdapter(dataList, this@StockActivity)
@@ -75,6 +163,7 @@ class StockActivity : AppCompatActivity() {
         }
     }
 
+    /*
     fun addData(){
         val cache = DiskBasedCache(cacheDir, 1024 * 1024)
 
@@ -82,18 +171,30 @@ class StockActivity : AppCompatActivity() {
 
         val requestQueue : RequestQueue = RequestQueue(cache, network).apply { start() }
 
-        val jsonObjectRequest = JsonObjectRequest(Request.Method.GET, url, null, Response.Listener { response ->
-            val jsonArray: JSONArray = response.getJSONArray("data")
-            for(i in 0..(jsonArray.length() - 1)){
-                val data: JSONObject = jsonArray.getJSONObject(i)
-                val product = Product(data.getInt("tokoid"), data.getInt("jumlah"), data.getString("warna"), data.getInt("ukuran"), data.getString("produkid"))
-                dataList.add(product)
-            }
-        },
-            Response.ErrorListener { error ->
-                Log.e("REPONSEERROR", error.message)
-        })
+        val stringRequest = StringRequest(
+            Request.Method.GET,
+            url,
+            Response.Listener<String>() {
+                val res = JSONObject(it)
+                val status: JSONObject = res.getJSONObject("success")
+                val data: JSONObject = res.getJSONObject("data")
+                if(status.getString("success").equals("success")){
+                    for(i: Int in 0 until (data.length() - 1)){
+                        val newProd = Product(data.getInt("tokoid"), data.getInt("jumlah"), data.getString("warna"), data.getInt("ukuran"), data.getString("produkid"))
+                        dataList.add(newProd)
+                    }
+                    pAdapter.updateList(dataList)
+                }
+                else{
+                    Log.e("ResponseUnknown", "Unknown Response")
+                }
+            },
+            Response.ErrorListener {
 
-        requestQueue.add(jsonObjectRequest)
+            }
+        )
+        requestQueue.add(stringRequest)v
     }
+    */
+
 }
