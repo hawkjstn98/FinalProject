@@ -2,7 +2,7 @@ package data
 
 interface urlData{
     fun callUrl(): String{
-        return "http://192.168.0.24/getData/getstockToko.php"
+        return "http://localhost/getData/getstockToko.php"
     }
 }
 
