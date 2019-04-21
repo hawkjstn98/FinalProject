@@ -74,21 +74,21 @@
             app:layout_constraintTop_toBottomOf="@+id/viewStruk"
             app:layout_constraintVertical_bias="0.0"></Button>
 
-    <RecyclerView
-            android:id="@+id/recycler_list_transaksi_next"
-            android:layout_width="376dp"
-            android:layout_height="230dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            android:scrollbars="horizontal"
-            app:layout_constraintBottom_toTopOf="@+id/btnConfirm"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.578"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnTambah"
-            app:layout_constraintVertical_bias="0.085"></RecyclerView>
+    <!--<RecyclerView-->
+            <!--android:id="@+id/recycler_list_transaksi_next"-->
+            <!--android:layout_width="376dp"-->
+            <!--android:layout_height="230dp"-->
+            <!--android:layout_marginStart="8dp"-->
+            <!--android:layout_marginTop="8dp"-->
+            <!--android:layout_marginEnd="8dp"-->
+            <!--android:layout_marginBottom="8dp"-->
+            <!--android:scrollbars="horizontal"-->
+            <!--app:layout_constraintBottom_toTopOf="@+id/btnConfirm"-->
+            <!--app:layout_constraintEnd_toEndOf="parent"-->
+            <!--app:layout_constraintHorizontal_bias="0.578"-->
+            <!--app:layout_constraintStart_toStartOf="parent"-->
+            <!--app:layout_constraintTop_toBottomOf="@+id/btnTambah"-->
+            <!--app:layout_constraintVertical_bias="0.085"></RecyclerView>-->
 
     <Button
             android:id="@+id/btnConfirm"
@@ -99,8 +99,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/recycler_list_transaksi_next"
             app:layout_constraintVertical_bias="0.428"
+            app:layout_constraintTop_toBottomOf="@id/btnTambah"
             android:text="Confirm"
             android:background="@color/colorPrimary"
             android:textColor="@color/white"/>
