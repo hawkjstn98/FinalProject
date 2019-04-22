@@ -82,15 +82,16 @@
                             android:padding="8dp" />
 
                     <EditText
-                            android:id="@+id/kode_sendal"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_marginEnd="24dp"
                             android:layout_marginBottom="0dp"
                             android:background="@color/editTextBackground"
-                            android:hint="kode sendal"
-                            android:paddingLeft="20dp"
-                            android:textSize="15dp" android:id="@+id/inputKodeSendal"/>
+                            android:hint="@string/kode_sendal"
+                            android:paddingStart="20dp"
+                            android:paddingEnd="20dp"
+                            android:textSize="15sp"
+                            android:id="@+id/inputKodeSendal"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -113,7 +114,6 @@
                             android:padding="8dp" />
 
                     <EditText
-                            android:id="@+id/ukuran_sendal"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:inputType="number"
@@ -121,9 +121,11 @@
                             android:layout_marginEnd="24dp"
                             android:layout_marginBottom="0dp"
                             android:background="@color/editTextBackground"
-                            android:hint="ukuran"
-                            android:paddingLeft="20dp"
-                            android:textSize="15dp" android:id="@+id/inputUkuranSendal"/>
+                            android:hint="@string/ukuran"
+                            android:paddingStart="20dp"
+                            android:paddingEnd="20dp"
+                            android:textSize="15sp"
+                            android:id="@+id/inputUkuranSendal"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -145,16 +147,17 @@
                             android:padding="8dp"/>
 
                     <EditText
-                            android:id="@+id/warna_sendal"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_marginStart="0dp"
                             android:layout_marginEnd="24dp"
                             android:layout_marginBottom="0dp"
                             android:background="@color/editTextBackground"
-                            android:hint="warna"
-                            android:paddingLeft="20dp"
-                            android:textSize="15dp" android:id="@+id/inputJumlahSendal"/>
+                            android:hint="@string/warna"
+                            android:paddingStart="20dp"
+                            android:paddingEnd="20dp"
+                            android:textSize="15sp"
+                            android:id="@+id/inputJumlahSendal"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -177,7 +180,6 @@
                             android:padding="8dp" />
 
                     <EditText
-                            android:id="@+id/jumlah_sendal"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:inputType="number"
@@ -185,10 +187,11 @@
                             android:layout_marginEnd="24dp"
                             android:layout_marginBottom="0dp"
                             android:background="@color/editTextBackground"
-                            android:hint="jumlah"
+                            android:hint="@string/jumlah"
                             android:paddingStart="20dp"
                             android:paddingEnd="20dp"
-                            android:textSize="15dp" android:id="@+id/inputWarnaSendal"/>
+                            android:textSize="15sp"
+                            android:id="@+id/inputWarnaSendal"/>
                 </LinearLayout>
 
                 <Button

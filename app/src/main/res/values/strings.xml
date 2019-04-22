@@ -1,16 +1,17 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">FinalProject</string>
     <string name="shop_name">TokoJustin</string>
     <string name="stock_check">Cek Stock</string>
     <string name="cek_stock">Cek Stock</string>
     <string name="search_text">Search</string>
-    <string name="kode_sendal">kode sendal</string>
+    <string name="kode_sendal">Kode Sendal</string>
     <string name="transaksi">TRANSAKSI</string>
-    <string name="ukuran">ukuran</string>
-    <string name="warna">warna</string>
-    <string name="jumlah">jumlah</string>
+    <string name="ukuran">Ukuran</string>
+    <string name="warna">Warna</string>
+    <string name="jumlah">Jumlah</string>
     <string name="add">Add</string>
     <string name="next">next</string>
     <string name="search">Search</string>
     <string name="confirm">Confirm</string>
+    <string name="cek_stock">Cek Stock</string>
 </resources>
