@@ -3,11 +3,14 @@ package umn.ac.id.finalproject
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.design.widget.FloatingActionButton
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import com.google.gson.Gson
 import data.Transaction
 import data.kodeToko
 
@@ -19,7 +22,7 @@ class TransactionActivity : AppCompatActivity(), kodeToko {
     private lateinit var warna: EditText
 
     private lateinit var btnInput: Button
-    private lateinit var btnTambah: Button
+    private lateinit var btnTambah: FloatingActionButton
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var tAdapter: TransactionAdapter
@@ -31,11 +34,11 @@ class TransactionActivity : AppCompatActivity(), kodeToko {
 
         produkId = findViewById(R.id.inputKodeSendal)
         ukuran = findViewById(R.id.inputUkuranSendal)
-        jumlah = findViewById(R.id.inputJummlahSendal)
+        jumlah = findViewById(R.id.inputJumlahSendal)
         warna = findViewById(R.id.inputWarnaSendal)
 
-        btnInput = findViewById(R.id.btnInput)
-        btnTambah = findViewById(R.id.btnTambah)
+        btnInput = findViewById(R.id.btnAdd)
+        btnTambah = findViewById(R.id.fabNext)
 
         tAdapter = TransactionAdapter(transList, this@TransactionActivity)
         recyclerView = findViewById(R.id.recycler_list_transaksi)
@@ -84,6 +87,12 @@ class TransactionActivity : AppCompatActivity(), kodeToko {
         btnTambah.setOnClickListener{
             if(transList.isNotEmpty()){
                 val intent = Intent(this@TransactionActivity, TransactionConfirmationActivity::class.java)
+                var gson: Gson = Gson()
+                var json: String = gson.toJson(transList)
+                Log.e("JSON", json)
+                for(transaction: Transaction in transList){
+                    //jsonObject.put("data", "")
+                }
                 startActivity(intent)
             }
             else{
