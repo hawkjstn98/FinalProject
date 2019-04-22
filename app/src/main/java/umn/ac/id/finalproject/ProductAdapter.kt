@@ -9,6 +9,11 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import data.Product
+import android.R.attr.country
+import java.nio.file.Files.size
+import android.text.method.TextKeyListener.clear
+import android.widget.Filter
+
 
 class ProductAdapter : RecyclerView.Adapter<ProductAdapter.ProductViewHolder> {
     private var dataList: ArrayList<Product>
@@ -27,6 +32,10 @@ class ProductAdapter : RecyclerView.Adapter<ProductAdapter.ProductViewHolder> {
 
     override fun getItemCount(): Int {
         return dataList.size
+    }
+
+    fun FilterList(filteredList: ArrayList<Product>){
+        updateList(filteredList)
     }
 
     override fun onBindViewHolder(p0: ProductViewHolder, p1: Int) {
@@ -52,5 +61,4 @@ class ProductAdapter : RecyclerView.Adapter<ProductAdapter.ProductViewHolder> {
         val jumlahItem: TextView = itemView.findViewById(R.id.jumlahItem) as TextView
         val parentLayout: LinearLayout = itemView.findViewById(R.id.parent_layout) as LinearLayout
     }
-
 }

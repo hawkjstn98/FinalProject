@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
@@ -54,7 +56,7 @@ class StockActivity : AppCompatActivity(), urlData, param {
 
                 urlConnection.connect()
 
-                var lengthOfFile: Int = urlConnection.contentLength
+                //var lengthOfFile: Int = urlConnection.contentLength
 
                 val inputStream: InputStream = urlConnection.inputStream
 
@@ -89,6 +91,7 @@ class StockActivity : AppCompatActivity(), urlData, param {
                         )
 
                         dataList.add(product)
+                        defaultDataList.add(product)
                     }
                 }
             }
@@ -123,10 +126,8 @@ class StockActivity : AppCompatActivity(), urlData, param {
         requestQueue = Volley.newRequestQueue(this)
 
         dataList = ArrayList()
+        defaultDataList = ArrayList()
         FetchData().execute(param)
-        if(defaultDataList.addAll(dataList)){
-            Toast.makeText(this@StockActivity, "Data Copied", Toast.LENGTH_SHORT).show()
-        }
 
         pAdapter = ProductAdapter(dataList, this@StockActivity)
 
@@ -135,32 +136,59 @@ class StockActivity : AppCompatActivity(), urlData, param {
         recyclerView.layoutManager = layoutManager
         recyclerView.adapter = pAdapter
 
-        btnSearch = findViewById(R.id.main2_search_button)
+        //btnSearch = findViewById(R.id.main2_search_button)
         txtSearch = findViewById(R.id.main2_search_edittext)
 
-        btnSearch.setOnClickListener {
-            val newList: ArrayList<Product> = ArrayList()
-            val searchTxt: String = txtSearch.text.toString()
-            if(searchTxt.isNotEmpty()){
-                for(data: Product in defaultDataList){
-                    if(data.produkId.toLowerCase().contains(searchTxt.toLowerCase())){
-                        newList.add(data)
-                    }
-                }
-
-                dataList = ArrayList()
-                dataList.addAll(newList)
-                pAdapter.updateList(dataList)
-                if(newList.size <= 0){
-                    Toast.makeText(this@StockActivity, "Nothing Found", Toast.LENGTH_SHORT).show()
-                }
+        txtSearch.addTextChangedListener(object: TextWatcher{
+            override fun afterTextChanged(s: Editable?) {
+                Filter(s.toString())
             }
-            else{
-                dataList = ArrayList()
-                dataList.addAll(defaultDataList)
-                pAdapter.updateList(dataList)
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+
+            }
+
+        })
+
+//        btnSearch.setOnClickListener {
+//            val newList: ArrayList<Product> = ArrayList()
+//            val searchTxt: String = txtSearch.text.toString()
+//            if(searchTxt.isNotEmpty()){
+//                for(data: Product in defaultDataList){
+//                    if(data.produkId.toLowerCase().contains(searchTxt.toLowerCase())){
+//                        newList.add(data)
+//                    }
+//                }
+//
+//                dataList = ArrayList()
+//                dataList.addAll(newList)
+//                pAdapter.updateList(dataList)
+//                if(newList.size <= 0){
+//                    Toast.makeText(this@StockActivity, "Nothing Found", Toast.LENGTH_SHORT).show()
+//                }
+//            }
+//            else{
+//                dataList = ArrayList()
+//                dataList.addAll(defaultDataList)
+//                pAdapter.updateList(dataList)
+//            }
+//        }
+    }
+
+    fun Filter (text: String){
+        var filteredList: ArrayList<Product> = ArrayList()
+        for(item: Product in defaultDataList){
+            if(item.produkId.toLowerCase().contains(text.toLowerCase())){
+                filteredList.add(item)
             }
         }
+
+        pAdapter.FilterList(filteredList)
     }
 
     /*
