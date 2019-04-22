@@ -88,8 +88,7 @@ class TransactionActivity : AppCompatActivity(), kodeToko {
             if(transList.isNotEmpty()){
                 val intent = Intent(this@TransactionActivity, TransactionConfirmationActivity::class.java)
                 var gson: Gson = Gson()
-                var json: String = gson.toJson(transList)
-                Log.e("JSON", json)
+                var json: String = gson.toJson(transList);
 //                for(transaction: Transaction in transList){
 //                    //jsonObject.put("data", "")
 //                }

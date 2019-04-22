@@ -16,6 +16,8 @@ import com.android.volley.toolbox.DiskBasedCache
 import com.android.volley.toolbox.HurlStack
 import com.android.volley.toolbox.StringRequest
 import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+import data.Transaction
 import data.UrlTransaction
 import kotlinx.android.synthetic.main.activity_transaction_confirmation.*
 import data.param
@@ -24,18 +26,24 @@ import org.json.JSONObject
 class TransactionConfirmationActivity : AppCompatActivity(), UrlTransaction, param {
     lateinit var transactionId: String;
     val REQUEST_IMAGE_CAPTURE=1;
+    lateinit var transactionData: ArrayList<Transaction>;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_transaction_confirmation)
+        val s : String = intent.getStringExtra("json");
         btnTambah.setOnClickListener{
             dispatchTakePictureIntent();
         }
 
         btnConfirm.setOnClickListener{
             val gson = Gson();
+            transactionData = gson.fromJson<java.util.ArrayList<Transaction>>(s, object : TypeToken<java.util.ArrayList<Transaction>>() {
+            }.type)
+            Log.d("data", transactionData.get(0).produkId)
             sendData();
         }
+
     }
 
     private fun dispatchTakePictureIntent(){
