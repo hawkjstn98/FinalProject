@@ -124,7 +124,9 @@ class StockActivity : AppCompatActivity(), urlData, param {
 
         dataList = ArrayList()
         FetchData().execute(param)
-        defaultDataList.addAll(dataList)
+        if(defaultDataList.addAll(dataList)){
+            Toast.makeText(this@StockActivity, "Data Copied", Toast.LENGTH_SHORT).show()
+        }
 
         pAdapter = ProductAdapter(dataList, this@StockActivity)
 
@@ -138,20 +140,19 @@ class StockActivity : AppCompatActivity(), urlData, param {
 
         btnSearch.setOnClickListener {
             val newList: ArrayList<Product> = ArrayList()
-
-            if(!txtSearch.text.equals("")){
-                for(data: Product in dataList){
-                    if(data.produkId.toLowerCase().equals(txtSearch.text)){
+            val searchTxt: String = txtSearch.text.toString()
+            if(searchTxt.isNotEmpty()){
+                for(data: Product in defaultDataList){
+                    if(data.produkId.toLowerCase().contains(searchTxt.toLowerCase())){
                         newList.add(data)
                     }
                 }
-                if(newList.size > 0){
-                    dataList = ArrayList()
-                    dataList.addAll(newList)
-                    pAdapter.updateList(dataList)
-                }
-                else{
-                    Toast.makeText(this@StockActivity, "Nothing Found", Toast.LENGTH_SHORT)
+
+                dataList = ArrayList()
+                dataList.addAll(newList)
+                pAdapter.updateList(dataList)
+                if(newList.size <= 0){
+                    Toast.makeText(this@StockActivity, "Nothing Found", Toast.LENGTH_SHORT).show()
                 }
             }
             else{

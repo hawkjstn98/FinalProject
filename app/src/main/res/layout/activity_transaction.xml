@@ -81,6 +81,7 @@
                     android:layout_marginBottom="0dp"
                     android:background="@color/editTextBackground"
                     android:hint="@string/kode_sendal"
+                    android:id="@+id/inputKodeSendal"
                     android:paddingStart="20dp"
                     android:paddingEnd="20dp"
                     android:textSize="15sp" />
@@ -113,6 +114,7 @@
                     android:layout_marginBottom="0dp"
                     android:background="@color/editTextBackground"
                     android:hint="@string/ukuran"
+                    android:id="@+id/inputUkuranSendal"
                     android:paddingStart="20dp"
                     android:paddingEnd="20dp"
                     android:textSize="15sp" />
@@ -145,6 +147,7 @@
                     android:layout_marginBottom="0dp"
                     android:background="@color/editTextBackground"
                     android:hint="@string/warna"
+                    android:id="@+id/inputWarnaSendal"
                     android:paddingStart="20dp"
                     android:paddingEnd="20dp"
                     android:textSize="15sp" />
@@ -177,12 +180,12 @@
                     android:layout_marginBottom="0dp"
                     android:background="@color/editTextBackground"
                     android:hint="@string/jumlah"
+                    android:id="@+id/inputJummlahSendal"
                     android:paddingStart="20dp"
                     android:paddingEnd="20dp"
                     android:textSize="15sp" />
         </LinearLayout>
     </android.support.constraint.ConstraintLayout>
-
 
     <Button
             android:id="@+id/btnInput"
