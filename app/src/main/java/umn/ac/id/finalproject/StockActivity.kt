@@ -11,8 +11,6 @@ import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import com.android.volley.RequestQueue
-import com.android.volley.toolbox.*
 import data.Product
 import org.json.JSONArray
 import org.json.JSONException
@@ -34,11 +32,11 @@ class StockActivity : AppCompatActivity(), urlData, param {
     private var dataList: ArrayList<Product> = ArrayList()
     private var defaultDataList: ArrayList<Product> = ArrayList()
 
-    private lateinit var btnSearch: Button
+    //private lateinit var btnSearch: Button
     private lateinit var txtSearch: EditText
 
     private var param: String = callParamToko()
-    private lateinit var requestQueue: RequestQueue
+    //private lateinit var requestQueue: RequestQueue
 
     private inner class FetchData : AsyncTask<String, Void, String>() {
         override fun doInBackground(vararg params: String?): String? {
@@ -123,7 +121,7 @@ class StockActivity : AppCompatActivity(), urlData, param {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_stock)
 
-        requestQueue = Volley.newRequestQueue(this)
+        //requestQueue = Volley.newRequestQueue(this)
 
         dataList = ArrayList()
         defaultDataList = ArrayList()
