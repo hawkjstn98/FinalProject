@@ -56,7 +56,7 @@ class TransactionActivity : AppCompatActivity(), kodeToko {
 
             if(!empty){
                 // Initialize transaction object to be added
-                var trans: Transaction = Transaction(callKodeToko(), jumlah.text.toString().toInt(), warna.text.toString(), ukuran.text.toString().toInt(), produkId.text.toString())
+                val trans: Transaction = Transaction(callKodeToko(), jumlah.text.toString().toInt(), warna.text.toString(), ukuran.text.toString().toInt(), produkId.text.toString())
                 transList.add(trans)
                 tAdapter.updateList(transList)
                 produkId.setText("")
@@ -90,9 +90,10 @@ class TransactionActivity : AppCompatActivity(), kodeToko {
                 var gson: Gson = Gson()
                 var json: String = gson.toJson(transList)
                 Log.e("JSON", json)
-                for(transaction: Transaction in transList){
-                    //jsonObject.put("data", "")
-                }
+//                for(transaction: Transaction in transList){
+//                    //jsonObject.put("data", "")
+//                }
+                intent.putExtra("json", json);
                 startActivity(intent)
             }
             else{
