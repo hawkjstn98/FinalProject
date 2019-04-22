@@ -82,6 +82,7 @@
                             android:padding="8dp" />
 
                     <EditText
+                            android:id="@+id/kode_sendal"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_marginEnd="24dp"
@@ -113,6 +114,7 @@
                             android:padding="8dp" />
 
                     <EditText
+                            android:id="@+id/ukuran_sendal"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:inputType="number"
@@ -146,6 +148,7 @@
                             android:padding="8dp" />
 
                     <EditText
+                            android:id="@+id/warna_sendal"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_marginStart="0dp"
@@ -178,6 +181,7 @@
                             android:padding="8dp" />
 
                     <EditText
+                            android:id="@+id/jumlah_sendal"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:inputType="number"
