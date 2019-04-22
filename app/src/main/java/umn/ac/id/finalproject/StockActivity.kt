@@ -91,6 +91,7 @@ class StockActivity : AppCompatActivity(), urlData, param {
                         dataList.add(product)
                         defaultDataList.add(product)
                     }
+                    pAdapter.updateList(dataList)
                 }
             }
             catch (e: MalformedURLException){

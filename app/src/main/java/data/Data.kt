@@ -12,3 +12,9 @@ interface param{
     }
 
 }
+
+interface kodeToko{
+    fun callKodeToko(): Int{
+        return 2;
+    }
+}

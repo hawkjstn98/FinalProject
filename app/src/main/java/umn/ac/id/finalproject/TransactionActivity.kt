@@ -9,9 +9,9 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import data.Transaction
-import kotlinx.android.synthetic.main.activity_transaction.*
+import data.kodeToko
 
-class TransactionActivity : AppCompatActivity() {
+class TransactionActivity : AppCompatActivity(), kodeToko {
 
     private lateinit var produkId: EditText
     private lateinit var ukuran: EditText
@@ -53,7 +53,14 @@ class TransactionActivity : AppCompatActivity() {
 
             if(!empty){
                 // Initialize transaction object to be added
-                //var trans: Transaction = Transaction(2, jumlah.text.toString().toInt(), )
+                var trans: Transaction = Transaction(callKodeToko(), jumlah.text.toString().toInt(), warna.text.toString(), ukuran.text.toString().toInt(), produkId.text.toString())
+                transList.add(trans)
+                tAdapter.updateList(transList)
+                produkId.setText("")
+                ukuran.setText("")
+                jumlah.setText("")
+                warna.setText("")
+                Toast.makeText(this@TransactionActivity, "Transaction Added", Toast.LENGTH_SHORT).show()
             }
             else{
                 if(produkId.text.isNullOrEmpty()){
@@ -75,8 +82,13 @@ class TransactionActivity : AppCompatActivity() {
         }
 
         btnTambah.setOnClickListener{
-            val intent = Intent(this@TransactionActivity, TransactionConfirmationActivity::class.java);
-            startActivity(intent);
+            if(transList.isNotEmpty()){
+                val intent = Intent(this@TransactionActivity, TransactionConfirmationActivity::class.java)
+                startActivity(intent)
+            }
+            else{
+                Toast.makeText(this@TransactionActivity, "No Transactions to be Processed", Toast.LENGTH_SHORT)
+            }
         }
 
     }
