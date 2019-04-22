@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             xmlns:tools="http://schemas.android.com/tools"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="match_parent">
     <android.support.v7.widget.CardView
+            android:id="@+id/judulpage"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:layout_marginBottom="10dp"
             android:layout_marginLeft="10dp"
@@ -16,197 +16,217 @@
             app:cardCornerRadius="3dp"
             app:cardElevation="3dp"
             app:cardPreventCornerOverlap="false"
-            app:cardUseCompatPadding="true">
-
-        <RelativeLayout
+            app:cardUseCompatPadding="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+        <LinearLayout
+                android:id="@+id/linearlayout"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-            <LinearLayout
-                    android:id="@+id/linearlayout"
-                    android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/colorPrimary"
+                android:gravity="center">
+            <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/circle"
+                    android:padding="10dp"
+                    android:src="@drawable/translogo"
+                    android:tint="@color/white"/>
+            <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:background="@color/colorPrimary"
-                    android:gravity="center">
-                <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_marginTop="10dp"
-                        android:background="@drawable/circle"
-                        android:padding="10dp"
-                        android:src="@drawable/translogo"
-                        android:tint="@color/white"/>
-                <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-medium"
-                        android:textColor="@color/white"
-                        android:text="TRANSAKSI"
-                        android:textSize="14dp"/>
-            </LinearLayout>
-
-            <RelativeLayout
-                    android:id="@+id/rlharga"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_below="@+id/linearlayout">
-                <ImageView
-                        android:id="@+id/imgView_harga"
-                        android:layout_width="35dp"
-                        android:layout_height="35dp"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentTop="true"
-                        android:layout_marginStart="24dp"
-                        android:background="@color/colorPrimary"
-                        android:padding="8dp" />
-
-                <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_alignBottom="@+id/imgView_harga"
-                        android:layout_alignParentTop="true"
-                        android:layout_marginLeft="0dp"
-                        android:layout_toRightOf="@+id/imgView_harga"
-                        android:background="@color/editTextBackground"
-                        android:hint="kode sendal"
-                        android:paddingLeft="20dp"
-                        android:textSize="15dp"
-                        android:layout_alignParentEnd="true" android:layout_marginEnd="24dp"
-                        android:layout_marginBottom="0dp" android:id="@+id/ukuran_transaction"/>
-            </RelativeLayout>
-
-            <RelativeLayout
-                    android:id="@+id/rlukuran"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_below="@+id/rlharga">
-                <ImageView
-                        android:id="@+id/imgView_ukuran"
-                        android:layout_width="35dp"
-                        android:layout_height="35dp"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentTop="true"
-                        android:layout_marginStart="24dp"
-                        android:background="@color/colorPrimary"
-                        android:padding="8dp" />
-
-                <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_alignBottom="@+id/imgView_ukuran"
-                        android:layout_alignParentTop="true"
-                        android:layout_marginLeft="0dp"
-                        android:layout_toRightOf="@+id/imgView_ukuran"
-                        android:background="@color/editTextBackground"
-                        android:hint="ukuran"
-                        android:paddingLeft="20dp"
-                        android:textSize="15dp" android:layout_alignParentEnd="true" android:layout_marginEnd="24dp"
-                        android:layout_marginBottom="0dp" android:id="@+id/ukuran_transaction"/>
-            </RelativeLayout>
-            <RelativeLayout
-                    android:id="@+id/rljumlah"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_below="@+id/rlukuran">
-                <ImageView
-                        android:id="@+id/imgView_jumlah"
-                        android:layout_width="35dp"
-                        android:layout_height="35dp"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentTop="true"
-                        android:layout_marginStart="24dp"
-                        android:background="@color/colorPrimary"
-                        android:padding="8dp" />
-
-                <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_alignBottom="@+id/imgView_jumlah"
-                        android:layout_alignParentTop="true"
-                        android:layout_marginLeft="0dp"
-                        android:layout_toRightOf="@+id/imgView_jumlah"
-                        android:background="@color/editTextBackground"
-                        android:hint="jumlah"
-                        android:paddingLeft="20dp"
-                        android:textSize="15dp" android:layout_alignParentEnd="true" android:layout_marginEnd="24dp"
-                        android:layout_marginBottom="0dp" android:id="@+id/ukuran_transaction"/>
-            </RelativeLayout>
-
-            <RelativeLayout
-                    android:id="@+id/rlkode"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_below="@+id/rljumlah">
-                <ImageView
-                        android:id="@+id/imgView_kode"
-                        android:layout_width="35dp"
-                        android:layout_height="35dp"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentTop="true"
-                        android:layout_marginStart="24dp"
-                        android:background="@color/colorPrimary"
-                        android:padding="8dp" />
-
-                <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_alignBottom="@+id/imgView_kode"
-                        android:layout_alignParentTop="true"
-                        android:layout_marginLeft="0dp"
-                        android:layout_toRightOf="@+id/imgView_kode"
-                        android:background="@color/editTextBackground"
-                        android:hint="warna"
-                        android:paddingLeft="20dp"
-                        android:textSize="15dp"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginEnd="24dp"
-                        android:layout_marginBottom="0dp" android:id="@+id/ukuran_transaction"/>
-            </RelativeLayout>
-
-            <Button
-                    android:id="@+id/btnInput"
-                    android:layout_width="179dp"
-                    android:layout_height="35dp"
-                    android:layout_below="@+id/rlkode"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginStart="112dp"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="96dp"
-                    android:background="@color/colorPrimary"
-                    android:text="Input"
-                    android:textColor="@color/white"></Button>
-
-            <android.support.v7.widget.RecyclerView
-                    android:id="@+id/recycler_list_transaksi"
-                    android:layout_width="376dp"
-                    android:layout_height="243dp"
-                    android:layout_below="@+id/btnInput"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="10dp"
-                    app:layout_constraintHorizontal_bias="0.0" />
-
-            <Button
-                    android:id="@+id/btnTambah"
-                    android:layout_width="75dp"
-                    android:layout_height="75dp"
-                    android:layout_below="@+id/recycler_list_transaksi"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/circle_button"
+                    android:fontFamily="sans-serif-medium"
                     android:textColor="@color/white"
-                    android:text="next"
-                    android:layout_centerHorizontal="true"></Button>
-
-
-        </RelativeLayout>
-
+                    android:text="@string/transaksi"
+                    android:textSize="14sp"/>
+        </LinearLayout>
     </android.support.v7.widget.CardView>
 
-</RelativeLayout>
+    <android.support.constraint.ConstraintLayout
+            android:id="@+id/form_trans"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/judulpage">
+
+        <LinearLayout
+                android:id="@+id/field_code"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@id/field_ukuran"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                    android:id="@+id/imgView_kode"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginStart="24dp"
+                    android:background="@color/colorPrimary"
+                    android:padding="8dp" />
+
+            <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginBottom="0dp"
+                    android:background="@color/editTextBackground"
+                    android:hint="@string/kode_sendal"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:textSize="15sp" />
+        </LinearLayout>
+
+        <LinearLayout
+                android:id="@+id/field_ukuran"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/field_code"
+                app:layout_constraintBottom_toTopOf="@+id/field_warna">
+
+            <ImageView
+                    android:id="@+id/imgView_ukuran"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginStart="24dp"
+                    android:background="@color/colorPrimary"
+                    android:padding="8dp" />
+
+            <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginBottom="0dp"
+                    android:background="@color/editTextBackground"
+                    android:hint="@string/ukuran"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:textSize="15sp" />
+        </LinearLayout>
+
+        <LinearLayout
+                android:id="@+id/field_warna"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/field_ukuran"
+                app:layout_constraintBottom_toTopOf="@id/field_jumlah">
+
+            <ImageView
+                    android:id="@+id/imgView_warna"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginStart="24dp"
+                    android:background="@color/colorPrimary"
+                    android:padding="8dp" />
+
+            <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginBottom="0dp"
+                    android:background="@color/editTextBackground"
+                    android:hint="@string/warna"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:textSize="15sp" />
+        </LinearLayout>
+
+        <LinearLayout
+                android:id="@+id/field_jumlah"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/field_warna"
+                app:layout_constraintBottom_toBottomOf="parent">
+
+            <ImageView
+                    android:id="@+id/imgView_jumlah"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginStart="24dp"
+                    android:background="@color/colorPrimary"
+                    android:padding="8dp"/>
+
+            <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginBottom="0dp"
+                    android:background="@color/editTextBackground"
+                    android:hint="@string/jumlah"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:textSize="15sp" />
+        </LinearLayout>
+    </android.support.constraint.ConstraintLayout>
+
+
+    <Button
+            android:id="@+id/btnInput"
+            android:layout_width="179dp"
+            android:layout_height="35dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="112dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="96dp"
+            android:background="@color/colorPrimary"
+            android:text="@string/add"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/form_trans"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_list_transaksi"
+            android:layout_width="376dp"
+            android:layout_height="231dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnInput"/>
+
+    <Button
+            android:id="@+id/btnTambah"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/circle_button"
+            android:text="@string/next"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/recycler_list_transaksi"
+            app:layout_constraintVertical_bias="0.242">
+
+    </Button>
+</android.support.constraint.ConstraintLayout>

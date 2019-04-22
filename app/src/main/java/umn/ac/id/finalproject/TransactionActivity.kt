@@ -17,7 +17,7 @@ class TransactionActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_transaction)
 
-        produkId = findViewById(R.id.idItem)
+        //produkId = findViewById(R.id.idItem)
 
         btnTambah.setOnClickListener{
             val intent = Intent(this@TransactionActivity, TransactionConfirmationActivity::class.java);
