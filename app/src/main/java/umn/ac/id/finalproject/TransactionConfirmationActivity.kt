@@ -35,20 +35,13 @@ class TransactionConfirmationActivity : AppCompatActivity(), UrlTransaction, par
         btnTambah.setOnClickListener{
             dispatchTakePictureIntent();
         }
-
+        Log.d("Data", s);
         btnConfirm.setOnClickListener{
-            val gson = Gson();
-            transactionData = gson.fromJson<java.util.ArrayList<Transaction>>(s, object : TypeToken<java.util.ArrayList<Transaction>>() {
-            }.type)
-            Log.d("data", transactionData.get(0).produkId)
-            sendData();
-            for(i: Int in 0 until (transactionData.size)){
-                val id : String = transactionData.get(i).produkId;
-                val warna : String = transactionData.get(i).warna;
-                val ukuran : Int  = transactionData.get(i).ukuran;
-                val jumlah : Int = transactionData.get(i).jumlah;
-                sendProductData(id, warna, ukuran, jumlah, transactionId);
-            }
+//            val gson = Gson();
+////            transactionData = gson.fromJson<java.util.ArrayList<Transaction>>(s, object : TypeToken<java.util.ArrayList<Transaction>>() {
+////            }.type)
+            //Log.d("data", transactionData.get(0).produkId)
+            sendData(s);
 
         }
 
@@ -69,7 +62,7 @@ class TransactionConfirmationActivity : AppCompatActivity(), UrlTransaction, par
         }
     }
 
-    private fun sendData(){
+    private fun sendData(s: String){
         val cache = DiskBasedCache(cacheDir, 1024 * 1024);
 
         val network = BasicNetwork(HurlStack());
@@ -90,8 +83,9 @@ class TransactionConfirmationActivity : AppCompatActivity(), UrlTransaction, par
                 val statusCode: String = res.getString("success");
                 if(statusCode.equals("Success")){
                     transactionId  = res.getString("data");
+                    sendProductData(transactionId, s);
                     Toast.makeText(this, transactionId, LENGTH_LONG).show();
-                    Log.d("KONTOL",transactionId);
+                    Log.d("TID",transactionId);
                 }
             },
             Response.ErrorListener { error ->
@@ -99,7 +93,8 @@ class TransactionConfirmationActivity : AppCompatActivity(), UrlTransaction, par
             })
         requestQueue.add(stringRequest);
     }
-    private fun sendProductData(id: String, warna: String, ukuran : Int, jumlah: Int, transactionid: String){
+    private fun sendProductData(id: String, data: String){
+        Log.d("Error", id+data);
         val cache = DiskBasedCache(cacheDir, 1024 * 1024);
 
         val network = BasicNetwork(HurlStack());
@@ -109,7 +104,7 @@ class TransactionConfirmationActivity : AppCompatActivity(), UrlTransaction, par
         }
 
         val url = callUrlTransaction();
-        val param = callParamTransactionTokoData(id, warna, ukuran, jumlah, transactionid);
+        val param = callParamTransactionTokoData(id, data);
 
         val stringRequest = StringRequest(Request.Method.GET, url+param,
             Response.Listener<String> { response ->
