@@ -42,6 +42,14 @@ class TransactionConfirmationActivity : AppCompatActivity(), UrlTransaction, par
             }.type)
             Log.d("data", transactionData.get(0).produkId)
             sendData();
+            for(i: Int in 0 until (transactionData.size)){
+                val id : String = transactionData.get(i).produkId;
+                val warna : String = transactionData.get(i).warna;
+                val ukuran : Int  = transactionData.get(i).ukuran;
+                val jumlah : Int = transactionData.get(i).jumlah;
+                sendProductData(id, warna, ukuran, jumlah, transactionId);
+            }
+
         }
 
     }
@@ -91,5 +99,33 @@ class TransactionConfirmationActivity : AppCompatActivity(), UrlTransaction, par
             })
         requestQueue.add(stringRequest);
     }
+    private fun sendProductData(id: String, warna: String, ukuran : Int, jumlah: Int, transactionid: String){
+        val cache = DiskBasedCache(cacheDir, 1024 * 1024);
 
+        val network = BasicNetwork(HurlStack());
+
+        val requestQueue = RequestQueue(cache, network).apply {
+            start()
+        }
+
+        val url = callUrlTransaction();
+        val param = callParamTransactionTokoData(id, warna, ukuran, jumlah, transactionid);
+
+        val stringRequest = StringRequest(Request.Method.GET, url+param,
+            Response.Listener<String> { response ->
+                Log.d("res", response);
+                var stringResponse = response.toString();
+                val res: JSONObject = JSONObject(response);
+                val statusCode: String = res.getString("success");
+                if(statusCode.equals("Success")){
+                    //transactionId  = res.getString("data");
+                    Toast.makeText(this, statusCode, LENGTH_LONG).show();
+                }
+            },
+            Response.ErrorListener { error ->
+                Toast.makeText(this, error.toString(), LENGTH_LONG).show();
+            })
+        requestQueue.add(stringRequest);
+
+    }
 }
