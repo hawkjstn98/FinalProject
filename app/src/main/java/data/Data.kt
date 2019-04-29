@@ -2,7 +2,7 @@ package data
 
 interface urlData{
     fun callUrl(): String{
-        return baseUrl()+"getData/getstockToko.php";
+        return baseUrl()+"/getData/getstockToko.php";
     }
 }
 
@@ -37,5 +37,5 @@ interface UrlTransaction{
 }
 
 private fun baseUrl(): String{
-    return "http://192.168.1.6";
+    return "http://192.168.0.24";
 }

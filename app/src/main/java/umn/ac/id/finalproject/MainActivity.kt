@@ -17,7 +17,6 @@ class MainActivity : AppCompatActivity(), urlData {
         cardviewTransaksi.setOnClickListener {
             val intent = Intent(this@MainActivity, TransactionActivity::class.java);
             startActivity(intent);
-            Toast.makeText(this@MainActivity, callUrl(), LENGTH_LONG ).show();
         }
         cardviewStock.setOnClickListener {
             val intent = Intent( this@MainActivity, StockActivity::class.java);

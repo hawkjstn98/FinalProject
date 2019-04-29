@@ -17,13 +17,17 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             android:usesCleartextTraffic="true">
-        <activity android:name=".TransactionConfirmationActivity">
+        <activity android:name=".TransactionConfirmationActivity"
+                  android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".StockActivity">
+        <activity android:name=".StockActivity"
+                  android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".TransactionActivity">
+        <activity android:name=".TransactionActivity"
+                  android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+                  android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
