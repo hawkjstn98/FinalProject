@@ -13,4 +13,6 @@
     <string name="next">next</string>
     <string name="search">Search</string>
     <string name="confirm">Confirm</string>
+    <string name="merk">Merk</string>
+    <string name="harga_jual">Harga Jual</string>
 </resources>
