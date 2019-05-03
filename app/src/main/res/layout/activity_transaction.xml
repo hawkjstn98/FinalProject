@@ -5,18 +5,6 @@
                                              android:layout_width="match_parent"
                                              android:layout_height="match_parent"
                                              android:configChanges="orientation|screenLayout|screenSize">
-    <android.support.v7.widget.RecyclerView
-            android:id="@+id/recycler_list_transaksi"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp" android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/scrollView"
-            android:configChanges="orientation|screenLayout|screenSize"
-
-    />
     <android.support.v7.widget.CardView
             android:id="@+id/judulpage"
             android:layout_width="match_parent"
@@ -57,173 +45,184 @@
                     android:textSize="14sp"/>
         </LinearLayout>
     </android.support.v7.widget.CardView>
-    <ScrollView
-            android:id="@+id/scrollView"
+    <android.support.constraint.ConstraintLayout
+            android:id="@+id/form_trans"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/judulpage"
-            >
+            app:layout_constraintBottom_toTopOf="@+id/scrollView">
+
+        <LinearLayout
+                android:id="@+id/field_code"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@id/field_ukuran"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                    android:id="@+id/imgView_kode"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginStart="24dp"
+                    android:background="@color/colorPrimary"
+                    android:padding="8dp"/>
+
+            <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginBottom="0dp"
+                    android:background="@color/editTextBackground"
+                    android:hint="@string/kode_sendal"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:textSize="15sp"
+                    android:id="@+id/inputKodeSendal"/>
+        </LinearLayout>
+
+        <LinearLayout
+                android:id="@+id/field_ukuran"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/field_code"
+                app:layout_constraintBottom_toTopOf="@+id/field_warna">
+
+            <ImageView
+                    android:id="@+id/imgView_ukuran"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginStart="24dp"
+                    android:background="@color/colorPrimary"
+                    android:padding="8dp"/>
+
+            <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="number"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginBottom="0dp"
+                    android:background="@color/editTextBackground"
+                    android:hint="@string/ukuran"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:textSize="15sp"
+                    android:id="@+id/inputUkuranSendal"/>
+        </LinearLayout>
+
+        <LinearLayout
+                android:id="@+id/field_warna"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/field_ukuran"
+                app:layout_constraintBottom_toTopOf="@id/field_jumlah">
+
+            <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginStart="24dp"
+                    android:background="@color/colorPrimary"
+                    android:padding="8dp"/>
+
+            <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginBottom="0dp"
+                    android:background="@color/editTextBackground"
+                    android:hint="@string/warna"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:textSize="15sp"
+                    android:id="@+id/inputWarnaSendal"/>
+        </LinearLayout>
+
+        <LinearLayout
+                android:id="@+id/field_jumlah"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/field_warna"
+                app:layout_constraintBottom_toTopOf="@id/btnAdd">
+
+            <ImageView
+                    android:id="@+id/imgView_jumlah"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginStart="24dp"
+                    android:background="@color/colorPrimary"
+                    android:padding="8dp"/>
+
+            <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="number"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginBottom="0dp"
+                    android:background="@color/editTextBackground"
+                    android:hint="@string/jumlah"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:textSize="15sp"
+                    android:id="@+id/inputJumlahSendal"/>
+        </LinearLayout>
+
+        <Button
+                android:id="@+id/btnAdd"
+                android:layout_width="150dp"
+                android:layout_height="35dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_centerHorizontal="true"
+                android:background="@color/colorPrimary"
+                android:layout_marginTop="20dp"
+                android:text="@string/add"
+                android:textColor="@color/white"
+                app:layout_constraintTop_toBottomOf="@+id/field_jumlah"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.498">
+        </Button>
+    </android.support.constraint.ConstraintLayout>
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        app:layout_constraintTop_toBottomOf="@+id/form_trans"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
         <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-            <android.support.constraint.ConstraintLayout
-                    android:id="@+id/form_trans"
+            <android.support.v7.widget.RecyclerView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
+                    android:layout_height="350dp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/judulpage">
-
-                <LinearLayout
-                        android:id="@+id/field_code"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        app:layout_constraintBottom_toTopOf="@id/field_ukuran"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent">
-
-                    <ImageView
-                            android:id="@+id/imgView_kode"
-                            android:layout_width="35dp"
-                            android:layout_height="35dp"
-                            android:layout_marginStart="24dp"
-                            android:background="@color/colorPrimary"
-                            android:padding="8dp" />
-
-                    <EditText
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginEnd="24dp"
-                            android:layout_marginBottom="0dp"
-                            android:background="@color/editTextBackground"
-                            android:hint="@string/kode_sendal"
-                            android:paddingStart="20dp"
-                            android:paddingEnd="20dp"
-                            android:textSize="15sp"
-                            android:id="@+id/inputKodeSendal"/>
-                </LinearLayout>
-
-                <LinearLayout
-                        android:id="@+id/field_ukuran"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:orientation="horizontal"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/field_code"
-                        app:layout_constraintBottom_toTopOf="@+id/field_warna">
-
-                    <ImageView
-                            android:id="@+id/imgView_ukuran"
-                            android:layout_width="35dp"
-                            android:layout_height="35dp"
-                            android:layout_marginStart="24dp"
-                            android:background="@color/colorPrimary"
-                            android:padding="8dp" />
-
-                    <EditText
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:inputType="number"
-                            android:layout_marginStart="0dp"
-                            android:layout_marginEnd="24dp"
-                            android:layout_marginBottom="0dp"
-                            android:background="@color/editTextBackground"
-                            android:hint="@string/ukuran"
-                            android:paddingStart="20dp"
-                            android:paddingEnd="20dp"
-                            android:textSize="15sp"
-                            android:id="@+id/inputUkuranSendal"/>
-                </LinearLayout>
-
-                <LinearLayout
-                        android:id="@+id/field_warna"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:orientation="horizontal"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/field_ukuran"
-                        app:layout_constraintBottom_toTopOf="@id/field_jumlah">
-
-                    <ImageView
-                            android:layout_width="35dp"
-                            android:layout_height="35dp"
-                            android:layout_marginStart="24dp"
-                            android:background="@color/colorPrimary"
-                            android:padding="8dp"/>
-
-                    <EditText
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginStart="0dp"
-                            android:layout_marginEnd="24dp"
-                            android:layout_marginBottom="0dp"
-                            android:background="@color/editTextBackground"
-                            android:hint="@string/warna"
-                            android:paddingStart="20dp"
-                            android:paddingEnd="20dp"
-                            android:textSize="15sp"
-                            android:id="@+id/inputWarnaSendal"/>
-                </LinearLayout>
-
-                <LinearLayout
-                        android:id="@+id/field_jumlah"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:orientation="horizontal"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/field_warna"
-                        app:layout_constraintBottom_toBottomOf="parent">
-
-                    <ImageView
-                            android:id="@+id/imgView_jumlah"
-                            android:layout_width="35dp"
-                            android:layout_height="35dp"
-                            android:layout_marginStart="24dp"
-                            android:background="@color/colorPrimary"
-                            android:padding="8dp" />
-
-                    <EditText
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:inputType="number"
-                            android:layout_marginStart="0dp"
-                            android:layout_marginEnd="24dp"
-                            android:layout_marginBottom="0dp"
-                            android:background="@color/editTextBackground"
-                            android:hint="@string/jumlah"
-                            android:paddingStart="20dp"
-                            android:paddingEnd="20dp"
-                            android:textSize="15sp"
-                            android:id="@+id/inputJumlahSendal"/>
-                </LinearLayout>
-
-                <Button
-                        android:id="@+id/btnAdd"
-                        android:layout_width="150dp"
-                        android:layout_height="35dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerHorizontal="true"
-                        android:background="@color/colorPrimary"
-                        android:text="@string/add"
-                        android:textColor="@color/white"
-                        app:layout_constraintTop_toBottomOf="@+id/field_jumlah"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent">
-                </Button>
-            </android.support.constraint.ConstraintLayout>
+                    app:layout_constraintEnd_toEndOf="parent">
+            </android.support.v7.widget.RecyclerView>
         </LinearLayout>
     </ScrollView>
     <android.support.design.widget.FloatingActionButton

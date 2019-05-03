@@ -4,9 +4,6 @@ interface urlData{
     fun callUrl(): String{
         return baseUrl()+"/getData/getstockToko.php";
     }
-    fun callUrlFactory(): String{
-        return baseUrl()+"/getData/getstockPabrik.php";
-    }
 }
 
 interface param{

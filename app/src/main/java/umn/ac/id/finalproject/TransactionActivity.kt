@@ -3,6 +3,7 @@ package umn.ac.id.finalproject
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.support.design.widget.FloatingActionButton
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
@@ -99,6 +100,5 @@ class TransactionActivity : AppCompatActivity(), kodeToko {
                 Toast.makeText(this@TransactionActivity, "No Transactions to be Processed", Toast.LENGTH_SHORT)
             }
         }
-
     }
 }

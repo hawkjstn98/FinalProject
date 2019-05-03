@@ -17,91 +17,114 @@
                 android:background="@color/colorPrimary">
             <TextView
                     android:id="@+id/row_sendal_kode"
-                    android:paddingLeft="5dp"
+                    android:paddingStart="5dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="ini buat kode"/>
+                    android:text="ini buat kode"
+                    android:textColor="@color/white"/>
         </LinearLayout>
         <LinearLayout
-                android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-            <ImageView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:background="@color/editTextBackground"/>
+                android:layout_height="100dp"
+                android:background="@color/colorPrimary">
             <LinearLayout
-                    android:orientation="vertical"
+                    android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="30dp"
+                    android:background="@color/white">
+                <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
 
-                <LinearLayout
-                        android:orientation="horizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingLeft="5dp">
-                    <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Ukuran"
-                            android:paddingRight="35dp"/>
-                    <TextView
-                            android:id="@+id/row_sendal_ukuran"
-                            android:paddingLeft="5dp"
+                    <LinearLayout
+                            android:orientation="horizontal"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="aaa"/>
-                </LinearLayout>
-                <LinearLayout
-                        android:orientation="horizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingLeft="5dp">
-                    <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Merk"
-                            android:paddingRight="47dp"/>
-                    <TextView
-                            android:id="@+id/row_sendal_merk"
-                            android:paddingLeft="5dp"
+                            android:paddingLeft="5dp">
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/ukuran"
+                                android:paddingRight="35dp"/>
+                        <TextView
+                                android:id="@+id/row_sendal_ukuran"
+                                android:paddingStart="5dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="aaa"/>
+                    </LinearLayout>
+                    <LinearLayout
+                            android:orientation="horizontal"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="aaa"/>
-                </LinearLayout>
-                <LinearLayout
-                        android:orientation="horizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingLeft="5dp">
-                    <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Jumlah"
-                            android:paddingRight="33dp"/>
-                    <TextView
-                            android:id="@+id/row_sendal_jumlah"
-                            android:paddingLeft="5dp"
+                            android:paddingStart="5dp"
+                            android:layout_marginTop="">
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/warna"
+                                android:paddingEnd="39dp"/>
+                        <TextView
+                                android:id="@+id/row_sendal_warna"
+                                android:paddingStart="5dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="aaa"/>
+                    </LinearLayout>
+                    <LinearLayout
+                            android:orientation="horizontal"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="aaa"/>
-                </LinearLayout>
-                <LinearLayout
-                        android:orientation="horizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingLeft="5dp">
-                    <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Harga Jual"
-                            android:paddingRight="12dp"/>
-                    <TextView
-                            android:id="@+id/row_sendal_harga"
-                            android:paddingLeft="5dp"
+                            android:paddingStart="5dp">
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/merk"
+                                android:paddingEnd="48dp"/>
+                        <TextView
+                                android:id="@+id/row_sendal_merk"
+                                android:paddingStart="5dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="aaa"/>
+                    </LinearLayout>
+                    <LinearLayout
+                            android:orientation="horizontal"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="aaa"/>
+                            android:paddingStart="5dp">
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/jumlah"
+                                android:paddingEnd="33dp"/>
+                        <TextView
+                                android:id="@+id/row_sendal_jumlah"
+                                android:paddingStart="5dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="aaa"/>
+                    </LinearLayout>
+                    <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingStart="5dp">
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/harga_jual"
+                                android:paddingEnd="12dp"/>
+                        <TextView
+                                android:id="@+id/row_sendal_hargajual"
+                                android:paddingStart="5dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="aaa"/>
+                    </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
