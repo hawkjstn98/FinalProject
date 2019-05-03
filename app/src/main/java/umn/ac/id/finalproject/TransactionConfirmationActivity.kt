@@ -22,6 +22,10 @@ import data.UrlTransaction
 import kotlinx.android.synthetic.main.activity_transaction_confirmation.*
 import data.param
 import org.json.JSONObject
+import android.graphics.drawable.BitmapDrawable
+import android.util.Base64
+import java.io.ByteArrayOutputStream
+
 
 class TransactionConfirmationActivity : AppCompatActivity(), UrlTransaction, param {
     lateinit var transactionId: String;
@@ -37,11 +41,16 @@ class TransactionConfirmationActivity : AppCompatActivity(), UrlTransaction, par
         }
         Log.d("Data", s);
         btnConfirm.setOnClickListener{
-//            val gson = Gson();
-////            transactionData = gson.fromJson<java.util.ArrayList<Transaction>>(s, object : TypeToken<java.util.ArrayList<Transaction>>() {
-////            }.type)
-            //Log.d("data", transactionData.get(0).produkId)
-            sendData(s);
+            if(viewStruk.getDrawable()!=null){
+                val bitmap: Bitmap = (viewStruk.getDrawable() as BitmapDrawable).getBitmap();
+                val processedImage: String = ConvertToBase64(bitmap);
+                Log.d("Base64", processedImage );
+                //sendData(s);
+            }
+            else{
+                Toast.makeText(this, "Please capture the image for verification", Toast.LENGTH_LONG).show();
+            }
+
 
         }
 
@@ -122,5 +131,13 @@ class TransactionConfirmationActivity : AppCompatActivity(), UrlTransaction, par
             })
         requestQueue.add(stringRequest);
 
+    }
+
+    fun ConvertToBase64(image: Bitmap): String{
+        val stream = ByteArrayOutputStream();
+        image.compress(Bitmap.CompressFormat.PNG, 100, stream);
+        val processedImage = stream.toByteArray();
+        val base64String: String = Base64.encodeToString(processedImage, Base64.DEFAULT);
+        return base64String;
     }
 }

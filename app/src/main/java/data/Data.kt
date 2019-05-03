@@ -2,7 +2,10 @@ package data
 
 interface urlData{
     fun callUrl(): String{
-        return baseUrl()+"getData/getstockToko.php";
+        return baseUrl()+"/getData/getstockToko.php";
+    }
+    fun callUrlFactory(): String{
+        return baseUrl()+"/getData/getstockPabrik.php";
     }
 }
 

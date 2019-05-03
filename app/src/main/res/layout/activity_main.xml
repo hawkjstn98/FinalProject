@@ -11,7 +11,8 @@
     <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent" tools:layout_editor_absoluteY="-136dp"
+            tools:layout_editor_absoluteX="-196dp">
 
         <RelativeLayout
                 android:layout_marginTop="32dp"
@@ -25,14 +26,14 @@
                     android:layout_height="100dp"
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true"
-                    android:background="@drawable/jwblogo" />
+                    android:background="@drawable/jwblogo"/>
 
         </RelativeLayout>
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Aplikasi Toko"
+                android:text="Aplikasi Pabrik"
                 android:textColor="@color/white"
                 android:fontFamily="sans-serif-medium"
                 android:textSize="22dp"/>
@@ -68,7 +69,7 @@
                     <ImageView
                             android:layout_width="80dp"
                             android:layout_height="80dp"
-                            android:background="@drawable/translogo" />
+                            android:background="@drawable/translogo"/>
                     <TextView
                             android:layout_marginTop="12dp"
                             android:textColor="#000000"
