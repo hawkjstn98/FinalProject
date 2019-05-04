@@ -44,7 +44,7 @@ class TransactionConfirmationActivity : AppCompatActivity(), UrlTransaction, par
             if(viewStruk.getDrawable()!=null){
                 val bitmap: Bitmap = (viewStruk.getDrawable() as BitmapDrawable).getBitmap();
                 val processedImage: String = ConvertToBase64(bitmap);
-                Log.d("Base64", processedImage );
+                Log.d("Base64", processedImage);
                 //sendData(s);
             }
             else{
@@ -135,8 +135,8 @@ class TransactionConfirmationActivity : AppCompatActivity(), UrlTransaction, par
 
     fun ConvertToBase64(image: Bitmap): String{
         val stream = ByteArrayOutputStream();
-        image.compress(Bitmap.CompressFormat.PNG, 100, stream);
-        val processedImage = stream.toByteArray();
+        image.compress(Bitmap.CompressFormat.PNG, 90, stream);
+        val processedImage: ByteArray = stream.toByteArray();
         val base64String: String = Base64.encodeToString(processedImage, Base64.DEFAULT);
         return base64String;
     }
