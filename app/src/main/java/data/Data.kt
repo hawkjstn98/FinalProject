@@ -11,8 +11,8 @@ interface param{
         return "?userName=MarioWibu&password=A559C7CA6258E603E59125333FFF381496982D96CFB54B691A5E84DBFDF2B475"
     }
 
-    fun callParamTransactionToko(): String{
-        return "?userName=MWB&Password=MWB";
+    fun callParamTransactionToko(base64String: String): String{
+        return "?userName=MWB&Password=MWB&image="+base64String;
     }
 
     fun callParamTransactionTokoData(id: String, data:String): String{
