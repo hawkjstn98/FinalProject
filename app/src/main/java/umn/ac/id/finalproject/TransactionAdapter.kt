@@ -21,7 +21,7 @@ class TransactionAdapter : RecyclerView.Adapter<TransactionAdapter.TransactionVi
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): TransactionAdapter.TransactionViewHolder {
         val layoutInflater: LayoutInflater = LayoutInflater.from(p0.context)
-        val view: View = layoutInflater.inflate(R.layout.transaction, p0, false)
+        val view: View = layoutInflater.inflate(R.layout.product, p0, false)
         return TransactionViewHolder(view)
     }
 
