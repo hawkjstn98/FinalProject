@@ -22,7 +22,7 @@ class TransactionActivity : AppCompatActivity(), kodeToko {
     private lateinit var jumlah: EditText
     private lateinit var warna: EditText
 
-    private lateinit var btnInput: Button
+    private lateinit var btnInput: FloatingActionButton
     private lateinit var btnTambah: FloatingActionButton
 
     private lateinit var recyclerView: RecyclerView

@@ -26,7 +26,7 @@ class ProductAdapter : RecyclerView.Adapter<ProductAdapter.ProductViewHolder> {
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ProductAdapter.ProductViewHolder {
         val layoutInflater: LayoutInflater = LayoutInflater.from(p0.context)
-        val view: View = layoutInflater.inflate(R.layout.product, p0, false)
+        val view: View = layoutInflater.inflate(R.layout.row_sendal, p0, false)
         return ProductViewHolder(view)
     }
 

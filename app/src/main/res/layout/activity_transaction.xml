@@ -49,6 +49,7 @@
             android:id="@+id/form_trans"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -161,7 +162,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/field_warna"
-                app:layout_constraintBottom_toTopOf="@id/btnAdd">
+                app:layout_constraintBottom_toBottomOf="parent">
 
             <ImageView
                     android:id="@+id/imgView_jumlah"
@@ -186,33 +187,36 @@
                     android:id="@+id/inputJumlahSendal"/>
         </LinearLayout>
 
-        <Button
-                android:id="@+id/btnAdd"
-                android:layout_width="150dp"
-                android:layout_height="35dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentEnd="true"
-                android:layout_centerHorizontal="true"
-                android:background="@color/colorPrimary"
-                android:layout_marginTop="20dp"
-                android:text="@string/add"
-                android:textColor="@color/white"
-                app:layout_constraintTop_toBottomOf="@+id/field_jumlah"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintHorizontal_bias="0.498">
-        </Button>
+
     </android.support.constraint.ConstraintLayout>
     <android.support.v7.widget.RecyclerView
-         android:layout_width="match_parent"
-         android:layout_height="wrap_content"
-         android:id="@+id/recycler_list_transaksi"
-         app:layout_constraintTop_toBottomOf="@+id/form_trans"
-         app:layout_constraintBottom_toBottomOf="parent"
-         app:layout_constraintStart_toStartOf="parent"
-         app:layout_constraintEnd_toEndOf="parent">
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:id="@+id/recycler_list_transaksi"
+            app:layout_constraintTop_toBottomOf="@+id/form_trans"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0">
     </android.support.v7.widget.RecyclerView>
+    <android.support.design.widget.FloatingActionButton
+            android:id="@+id/btnAdd"
+            android:layout_width="58dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:tint="@color/white"
+            android:src="@drawable/plus"
+            app:maxImageSize="15dp"
+            android:backgroundTint="@color/colorPrimary"
+            app:layout_constraintBottom_toTopOf="@+id/fabNext"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHorizontal_bias="0.976"
+            app:layout_constraintVertical_bias="0.984"/>
     <android.support.design.widget.FloatingActionButton
             android:id="@+id/fabNext"
             android:layout_width="58dp"

@@ -21,7 +21,7 @@ class TransactionAdapter : RecyclerView.Adapter<TransactionAdapter.TransactionVi
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): TransactionAdapter.TransactionViewHolder {
         val layoutInflater: LayoutInflater = LayoutInflater.from(p0.context)
-        val view: View = layoutInflater.inflate(R.layout.product, p0, false)
+        val view: View = layoutInflater.inflate(R.layout.row_sendal, p0, false)
         return TransactionViewHolder(view)
     }
 
@@ -34,10 +34,10 @@ class TransactionAdapter : RecyclerView.Adapter<TransactionAdapter.TransactionVi
 //    }
 
     override fun onBindViewHolder(p0: TransactionViewHolder, p1: Int) {
-        p0.idItem.text = "Product ID : " + dataList.get(p1).produkId
-        p0.warnaItem.text = "Warna : " + dataList.get(p1).warna
-        p0.ukuranItem.text = "Ukuran : " + dataList.get(p1).ukuran
-        p0.jumlahItem.text = "Jumlah : " + dataList.get(p1).jumlah
+        p0.idItem.text = dataList.get(p1).produkId
+        p0.warnaItem.text = dataList.get(p1).warna
+        p0.ukuranItem.text = dataList.get(p1).ukuran.toString()
+        p0.jumlahItem.text = dataList.get(p1).jumlah.toString()
         p0.parentLayout.setOnClickListener {
             Toast.makeText(context, p0.idItem.text, Toast.LENGTH_SHORT).show()
         }
