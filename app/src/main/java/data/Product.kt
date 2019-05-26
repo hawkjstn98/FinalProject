@@ -14,4 +14,6 @@ class Product{
         this.ukuran = ukuran
         this.produkId = produkId
     }
+
+
 }

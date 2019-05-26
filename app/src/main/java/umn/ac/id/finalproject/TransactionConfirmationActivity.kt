@@ -117,8 +117,9 @@ class TransactionConfirmationActivity : AppCompatActivity(), UrlTransaction, par
                 if(statusCode.equals("Success")){
                     transactionId  = response.getString("data");
                     sendProductData(transactionId, s);
-                    Toast.makeText(this, transactionId, LENGTH_LONG).show();
                     Log.d("TID",transactionId);
+                }
+                else{
                 }
             }, Response.ErrorListener {
                 error : VolleyError -> Log.d("Error1", error.toString());
@@ -158,8 +159,12 @@ class TransactionConfirmationActivity : AppCompatActivity(), UrlTransaction, par
                   //  sendProductData(transactionId, s);
 
                     val statusCode: String = response.getString("success");
-                    Toast.makeText(this, statusCode, LENGTH_LONG).show();
+                    //Toast.makeText(this, statusCode, LENGTH_LONG).show();
+                    finish();
                    // Log.d("TID",transactionId);
+                }
+                else{
+                    Toast.makeText(this, response.getString("data"), Toast.LENGTH_LONG).show();
                 }
             }, Response.ErrorListener {
                     error : VolleyError -> Log.d("Error2", error.toString());

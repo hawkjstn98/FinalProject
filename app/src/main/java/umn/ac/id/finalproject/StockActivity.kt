@@ -91,6 +91,7 @@ class StockActivity : AppCompatActivity(), urlData, param {
                         dataList.add(product)
                         defaultDataList.add(product)
                     }
+                    Log.e("Jumlah", dataList.size.toString())
                     pAdapter.updateList(dataList)
                 }
             }
@@ -186,7 +187,6 @@ class StockActivity : AppCompatActivity(), urlData, param {
                 filteredList.add(item)
             }
         }
-
         pAdapter.FilterList(filteredList)
     }
 

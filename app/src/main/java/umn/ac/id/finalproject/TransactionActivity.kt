@@ -29,6 +29,13 @@ class TransactionActivity : AppCompatActivity(), kodeToko {
     private lateinit var tAdapter: TransactionAdapter
     private var transList: ArrayList<Transaction> = ArrayList()
 
+    override fun onStart() {
+        super.onStart();
+       // Toast.makeText(this, "Start", Toast.LENGTH_LONG).show()
+        transList = ArrayList()
+        tAdapter.updateList(transList)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_transaction)
